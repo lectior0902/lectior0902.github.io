@@ -1,3 +1,12 @@
+---
+layout: single
+title:  "파이썬 객체지향 정리"
+---
+
+# 함수, 클래스와 인스턴스, 변수와 메서드, 상속
+
+
+
 ```python
 from google.colab import drive
 drive.mount('/content/drive')
@@ -8,7 +17,7 @@ drive.mount('/content/drive')
 
 
 ```python
-!jupyter nbconvert -to markdown "/content/drive/MyDrive/구름 생성AI/구름exp/깃허브 기술블로그/exp 과제: 파이썬 객체지향 .ipynb"
+!jupyter nbconvert --to markdown "/content/drive/MyDrive/구름 생성AI/구름exp/깃허브 기술블로그/exp 과제: 파이썬 객체지향 .ipynb"
 ```
 
     [NbConvertApp] WARNING | Unrecognized alias: 'to', it will have no effect.
