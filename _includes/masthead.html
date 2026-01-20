@@ -21,7 +21,46 @@
               >{{ link.title }}</a>
             </li>
           {%- endfor -%}
-        </ul>
+
+          <!-- Theme Toggle -->
+
+          <li class="masthead__menu-item">
+            <button id="theme-toggle" title="Switch Theme" aria-label="Switch Theme" style="background:none; border:none; cursor:pointer; padding: 0.5rem; line-height: 1;">
+              <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
+          </li>
+          
+          </ul>
+          <script>
+            const toggleBtn = document.getElementById('theme-toggle');
+            const themeIcon = document.getElementById('theme-icon');
+            
+            
+            
+            if (toggleBtn && themeIcon) {
+              function updateIcon() {
+                const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                themeIcon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+                themeIcon.style.color = isDark ? '#f1c40f' : 'inherit';
+              }
+              
+              updateIcon();
+            
+              toggleBtn.addEventListener('click', () => {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                if (newTheme === 'dark') {
+                  document.documentElement.setAttribute('data-theme', 'dark');
+                } else {
+                  document.documentElement.removeAttribute('data-theme');
+                }
+                localStorage.setItem('theme', newTheme);
+                updateIcon();
+              });
+            }
+        </script>
+          
         {% if site.search == true %}
         <button class="search__toggle" type="button">
           <span class="visually-hidden">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search" }}</span>
