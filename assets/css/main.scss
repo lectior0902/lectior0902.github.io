@@ -7,3 +7,37 @@ search: false
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+
+
+/* Dark Mode Support */
+:root {
+  --bg-color: #ffffff;
+  --text-main: #3d4144;
+  --text-secondary: #6f777d;
+  --link-color: #2f7d95;
+  --border-color: #f2f3f3;
+}
+
+[data-theme='dark'] {
+  --bg-color: #1d212f;
+  --text-main: #e1e3e5;
+  --text-secondary: #a5a9ad;
+  --link-color: #4fb3d0;
+  --border-color: #3b404e;
+}
+
+body {
+  background-color: var(--bg-color) !important;
+  color: var(--text-main) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 추가적인 요소들(헤더, 링크 등)에 대한 다크모드 오버라이드 */
+[data-theme='dark'] .masthead, 
+[data-theme='dark'] article.page {
+  background-color: var(--bg-color);
+}
+[data-theme='dark'] a {
+  color: var(--link-color);
+}
